@@ -1,0 +1,19 @@
+# Start PostgreSQL
+docker-compose up -d
+
+# Check if it's running
+docker-compose ps
+
+# Connect to the database
+docker-compose exec postgres psql -U postgres -d DataWarehouse
+
+Step 6: Verify Your Setup
+Once connected, run these commands ON THE TERMINAL to verify:
+
+-- List tables
+\dt
+
+-- Check data in fact table
+SELECT * FROM sales_fact;
+
+AND THIS WORKS WELL!!!
