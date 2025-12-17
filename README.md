@@ -47,13 +47,15 @@ La plateforme combine :
 ├── airflow/
 
 │   ├── dags/
-        └── data_warehouse_daily.py
+
+│       └── data_warehouse_daily.py
         
 │       └── data_warehouse_full_etl.py
 
 │   └── plugins/
 
 ├── sql-scripts/
+
 │             └── create-airflow-db.sql
 
 │             └── initial_database.sql
