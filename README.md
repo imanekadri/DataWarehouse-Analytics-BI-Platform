@@ -41,10 +41,10 @@ La plateforme combine :
 - Minimum recommandé : 8 Go de RAM
 
 ### Cloner le repository
-
+```bash
 git clone https://github.com/imanekadri/DataWarehouse-Analytics-BI-Platform.git
- cd DataWarehouse-Analytics-BI-Platform
-
+cd DataWarehouse-Analytics-BI-Platform
+```
 ### Configuration des conteneurs
 Les services sont configurés via le fichier docker-compose.yml :
 
@@ -111,9 +111,9 @@ Cette commande va :
 - Documentation Metabase : https://www.metabase.com/docs/latest/
 
 💡 Astuce : Pour arrêter et supprimer les conteneurs :
-
+```bash
 docker-compose down
-
+```
  
 
 ## Structure du projet
