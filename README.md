@@ -31,14 +31,93 @@ La plateforme combine :
 
 ---
 
-## Installation
+## Guide d’Installation
 
 ### Prérequis
 
-- Docker & Docker Compose installés sur votre machine.  
-- Au moins 8 Go de RAM recommandés pour exécuter tous les services.
+- Avant de commencer, assurez-vous d’avoir installé sur votre machine :
+- Docker (version récente)
+- Docker Compose
+- Minimum recommandé : 8 Go de RAM
 
-##Structure du projet
+### Cloner le repository
+
+git clone https://github.com/imanekadri/DataWarehouse-Analytics-BI-Platform.git
+ cd DataWarehouse-Analytics-BI-Platform
+
+### Configuration des conteneurs
+Les services sont configurés via le fichier docker-compose.yml :
+
+- PostgreSQL : base de données pour le Data Warehouse
+- Apache Airflow : orchestration des pipelines ETL
+- Metabase : visualisation et tableaux de bord
+- Vous pouvez modifier les paramètres (ports, mots de passe, volumes) directement dans le fichier docker-compose.yml si nécessaire.
+
+### Lancer la plateforme
+
+Pour démarrer tous les services, exécutez :
+
+docker-compose up -d
+
+
+Cette commande va :
+
+- Créer les conteneurs
+- Démarrer PostgreSQL, Airflow et Metabase
+- Monter les volumes pour persistance des données
+- Vérifier le fonctionnement
+
+  
+1. PostgreSQL
+
+     - Host : localhost ou adresse du conteneur
+
+     - Port : 5432
+
+     - Database : DataWarehouse
+
+     - Username / Password : définis dans docker-compose
+
+2. Apache Airflow
+
+     - Accéder à l’interface : http://localhost:8080
+
+     - Les DAGs principaux : data_warehouse_daily, data_warehouse_full_etl
+
+     - Vous pouvez exécuter les DAGs manuellement ou attendre leur planification automatique.
+
+3. Metabase
+
+     - Accéder à l’interface : http://localhost:3000
+
+     - Connecter la base PostgreSQL pour créer vos dashboards et questions.
+
+     - Exécution des DAGs ETL
+
+     - Aller dans l’interface Airflow
+
+     - Activer le DAG souhaité
+
+     - Cliquer sur "Trigger DAG" pour exécution immédiate
+
+     - Vérifier que les données sont chargées dans le Data Warehouse
+
+### Ressources utiles
+
+- Documentation Docker : https://docs.docker.com/
+
+- Documentation Airflow : https://airflow.apache.org/docs/
+
+- Documentation Metabase : https://www.metabase.com/docs/latest/
+
+💡 Astuce : Pour arrêter et supprimer les conteneurs :
+
+docker-compose down
+
+ 
+
+## Structure du projet
+
 
 /project
 │
